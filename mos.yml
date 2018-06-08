@@ -1,0 +1,28 @@
+author: InnerCode
+description: A MQTT-enabled switch for smarthome
+# arch: PLATFORM
+version: 1.0
+manifest_version: 2017-05-18
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+config_schema:
+  - ["smarthome", "o", {title: "Smarthome Configuration"}]
+  - ["smarthome.button", "i", 0, {"title": "Switch input"}]
+  - ["smarthome.led", "i", 2, {"title": "Onboard LED"}]
+  - ["smarthome.mqttPrefix", "s", "/switch", {title: "The MQTT topic prefix"}]
+  - ["mqtt.enable", "b", true, {"title": "Enable MQTT"}]
+  - ["mqtt.server", "s", "192.168.178.53", {"title": "MQTT broker"}]
+  - ["wifi.sta.enable", "b", true, {"title": "Enable WiFi"}]
+  - ["wifi.sta.ssid", "s", "SSID", {"title": "WiFi SSID"}]
+  - ["wifi.sta.pass", "s", "PASS", {"title": "WiFi password"}]
+
+tags:
+  - js
+
+filesystem:
+  - fs
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/js-demo-bundle
